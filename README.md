@@ -1,12 +1,12 @@
 
-# Customizing Visualization with `matplotlib` 
+# Customizing Visualization with Matplotlib
 
 ## Introduction
 
 We had a quick introduction to plotting with `matplotlib` in section one. This lesson covers plotting with Python and `matplotlib` using a more structured approach. We will look into the components of standard matplotlib plots used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
 
 ## Objectives
-
+You will be able to:
 * Change styles and attributes for plotting objects in python to allow customisation
 * Customize plots with titles, labels and positioning
 
