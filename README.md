@@ -1,15 +1,14 @@
 
 # Customizing Visualization with `matplotlib` 
 
-## Objectives
-
-* Understand matplotlib plot structure for customizing plots.
-* Differentiate between absolute and relative plotting techniques.
-* Implement and tweak high level objects in matplotlib including figure and axes.
-
 ## Introduction
 
-We saw a quick introduction `matplotlib` plotting in the first section. This lesson covers plotting with Python and `matplotlib` using a more structured approach. We shall look into the components of standard matplotlib plots, used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
+We had a quick introduction to plotting with `matplotlib` in section one. This lesson covers plotting with Python and `matplotlib` using a more structured approach. We will look into the components of standard matplotlib plots used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
+
+## Objectives
+
+* Change styles and attributes for plotting objects in python to allow customisation
+* Customize plots with titles, labels and positioning
 
 ## `matplotlib` Plot:
 
@@ -82,7 +81,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_6_0.png)
+![png](index_files/index_7_0.png)
 
 
 ### Labelling the Plots
@@ -125,7 +124,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_8_0.png)
+![png](index_files/index_9_0.png)
 
 
 ## `matplotlib` Objects
@@ -160,7 +159,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_11_0.png)
+![png](index_files/index_12_0.png)
 
 
 ### Sub-Plots
@@ -200,7 +199,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_14_0.png)
+![png](index_files/index_15_0.png)
 
 
 We can also draw above as one column split into two rows by passing (21x) to add_subplot function. Wanna give it a try ?
@@ -240,7 +239,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_18_0.png)
+![png](index_files/index_19_0.png)
 
 
 ### Customizing Line Styles
@@ -281,7 +280,7 @@ ax.plot(x, x+16, color="purple", lw=1, ls='-', marker='s', markersize=8, markerf
 ```
 
 
-![png](index_files/index_20_0.png)
+![png](index_files/index_21_0.png)
 
 
 ### Basic Plotting functions in `matplotlib`
@@ -300,5 +299,5 @@ We shall look into these functions in detail in upcoming labs and lessons.
 
 ## Summary
 
-This lesson provided us with an introduction to plotting in `matplotlib` plotting library. We saw how to draw plots with default objects settings vs. plotting with object definitions. We learnt to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
+This lesson provided us with some more experience with plotting in `matplotlib`. We saw how to draw plots with default objects settings vs. plotting with object definitions. We learned to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson then ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
 
