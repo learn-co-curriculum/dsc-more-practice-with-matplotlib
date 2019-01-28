@@ -167,7 +167,7 @@ If you want to draw a single plot, it’s better to do it with defaults as we sa
 
 We used `add_subplot()` function above as `add_subplots(111)` to define a new axes. This function took 3 arguments: number of rows (1), the number of columns (1) and the plot number (1), i.e. a single plot.
 
-Let's re-draw above plots in two different subplots. For this, we shall pass the arguments (12x) - telling us that we have one row split into two columns.  We can replace x with 1 and 2 to address our subplots areas. We shall also pass `figzie =(x,y)` to `.figure()` function in order to define the size for our figure space (x and y values are in inches by deualt).
+Let's re-draw above plots in two different subplots. For this, we shall pass the arguments (12x) - telling us that we have one row split into two columns.  We can replace x with 1 and 2 to address our subplots areas. We shall also pass `figsize =(x,y)` to `.figure()` function in order to define the size for our figure space (x and y values are in inches by deualt).
 
 
 ```python
