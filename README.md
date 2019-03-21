@@ -81,7 +81,7 @@ plt.show()
 ```
 
 
-![png](output_4_0.png)
+![png](index_files/index_4_0.png)
 
 
 ### Labelling the Plots
@@ -124,13 +124,13 @@ plt.show()
 ```
 
 
-![png](output_6_0.png)
+![png](index_files/index_6_0.png)
 
 
 ## `matplotlib` Objects
 
 As we just saw, such basic visualizations only require a few lines of code in `matplotlib` and `pyplot`. We have used a lot of built-in defaults that provide definitions of many underlying components. `figure` and `axes` are two such components, which we'll discuss next. The structure of a plot in `matplotlib` can be generalized as shown below.  
-![](gplot.png)
+![](images/gplot.png)
 
 ### Figure and Axes Objects
 Looking at the above image, a **figure** is a top level component that refers to the overall image space. **Axes** are added to the figure to define the area where data is plotted with the `plot()` function seen above. A figure can have a number of components like **title(s)** and **legend(s)** which may be used to further explain and customize the plot.  Axes have **ticks** and **labels** providing a perspective to the plot. `set_xlim(min,max)` and `set_ylim(min,max)` are used to define the limits of axes in a plot. 
@@ -159,7 +159,7 @@ plt.show()
 ```
 
 
-![png](output_8_0.png)
+![png](index_files/index_8_0.png)
 
 
 ### Sub-Plots
@@ -199,7 +199,7 @@ plt.show()
 ```
 
 
-![png](output_10_0.png)
+![png](index_files/index_10_0.png)
 
 
 We can also draw above as one column split into two rows by passing (21x) to add_subplot function. Wanna give it a try?
@@ -237,7 +237,7 @@ plt.show()
 ```
 
 
-![png](output_12_0.png)
+![png](index_files/index_12_0.png)
 
 
 ### Customizing Line Styles
@@ -278,7 +278,7 @@ ax.plot(x, x+16, color="purple", lw=1, ls='-', marker='s', markersize=8, markerf
 ```
 
 
-![png](output_14_0.png)
+![png](index_files/index_14_0.png)
 
 
 ### Basic Plotting Functions in `matplotlib`
