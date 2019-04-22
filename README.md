@@ -162,12 +162,92 @@ plt.show()
 ![png](index_files/index_8_0.png)
 
 
+## More on Axes
+
+You've seen that you can add labels to your axes, but you can also change the scales and numbering of the axes themselves. You do this via the `plt.xticks()` and `plt.yticks()` methods. (Note: `plt` refers to the standard import alias: `import matplotlib.pyplot as plt`.)
+
+
+
+
+```python
+#A standard plot
+x = np.linspace(start=0, stop=100, num=10**3)
+y = [xi**2 for xi in x]
+plt.scatter(x,y)
+```
+
+
+
+
+    <matplotlib.collections.PathCollection at 0x11060d048>
+
+
+
+
+![png](index_files/index_10_1.png)
+
+
+
+```python
+#The same plot with new axes ticks
+x = np.linspace(start=0, stop=100, num=10**3)
+y = [xi**2 for xi in x]
+plt.scatter(x,y)
+
+xticks = np.linspace(start=0, stop=100, num=11)
+yticks = np.linspace(start=0, stop=100**2, num=11)
+plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.yticks(yticks);
+```
+
+
+![png](index_files/index_11_0.png)
+
+
+Axis ticks that go beyond the data-points themselves can make for poor graphs:
+
+
+```python
+x = np.linspace(start=0, stop=100, num=10**3)
+y = [xi**2 for xi in x]
+plt.scatter(x,y)
+
+xticks = np.linspace(start=0, stop=200, num=11)
+yticks = np.linspace(start=0, stop=10**5, num=11)
+plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.yticks(yticks);
+plt.title('Displaying Terrible Use of plt.xticks() and plt.yticks()');
+```
+
+
+![png](index_files/index_13_0.png)
+
+
+But smaller tick ranges then the data itself will not crop the graph:
+
+
+```python
+x = np.linspace(start=0, stop=100, num=10**3)
+y = [xi**2 for xi in x]
+plt.scatter(x,y)
+
+xticks = np.linspace(start=0, stop=50, num=11)
+yticks = np.linspace(start=0, stop=.5*10**4, num=11)
+plt.title('More things to avoid')
+plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.yticks(yticks);
+```
+
+
+![png](index_files/index_15_0.png)
+
+
 ### Sub-Plots
-If you want to draw a single plot, it’s better to do it with defaults as we saw in the first example. However, if you want to draw multiple axes i.e. multiple plots in a single figure, it’s always better to explicitly define the **figure** object. Following this, you will always make use of the **Axes** object as `ax` above.
+If you want to draw a single plot, it’s better to do it with defaults as you saw in the first example. However, if you want to draw multiple axes i.e. multiple plots in a single figure, it’s always better to explicitly define the **figure** object. Following this, you will always make use of the **Axes** object as `ax` above.
 
-We used `add_subplot()` function above as `add_subplots(111)` to define a new axes. This function took 3 arguments: number of rows (1), the number of columns (1) and the plot number (1), i.e. a single plot.
+You saw `add_subplot()` function above as `add_subplots(111)` to define a new axes. This function took 3 arguments: number of rows (1), the number of columns (1) and the plot number (1), i.e. a single plot.
 
-Let's re-draw above plots in two different subplots. For this, we then pass the arguments (12x) - telling us that we have one row split into two columns.  We can replace x with 1 and 2 to address our subplots areas. We also pass `figsize =(x,y)` to `.figure()` function in order to define the size for our figure space (x and y values are in inches by default).
+Let's re-draw above plots in two different subplots. For this, you then pass the arguments (12x) - this tells you us that you have one row split into two columns.  You can replace x with 1 and 2 to address our subplots areas. You also pass `figsize =(x,y)` to `.figure()` function in order to define the size for our figure space (x and y values are in inches by default).
 
 
 ```python
@@ -199,14 +279,14 @@ plt.show()
 ```
 
 
-![png](index_files/index_10_0.png)
+![png](index_files/index_17_0.png)
 
 
 We can also draw above as one column split into two rows by passing (21x) to add_subplot function. Wanna give it a try?
 
 ### `add_sublpot()` vs. `add_axes()` Functions
 
-The `fig.add_axes()` and `fig.add_subplot()` both return a new Axes object. However, they do differ in the mechanism for adding the axes. With `add_axes()`, axes object is positioned in absolute coordinates, whereas with `add_subplot()`, axes objects are positioned relatively as we saw above. `add_axes()` can therefore be used for visualizing a plot within a plot. Let's look at a quick example:
+The `fig.add_axes()` and `fig.add_subplot()` both return a new Axes object. However, they do differ in the mechanism for adding the axes. With `add_axes()`, axes object is positioned in absolute coordinates, whereas with `add_subplot()`, axes objects are positioned relatively as you saw above. `add_axes()` can therefore be used for visualizing a plot within a plot. Take a look at a quick example:
 
 
 ```python
@@ -237,7 +317,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_12_0.png)
+![png](index_files/index_19_0.png)
 
 
 ### Customizing Line Styles
@@ -278,12 +358,12 @@ ax.plot(x, x+16, color="purple", lw=1, ls='-', marker='s', markersize=8, markerf
 ```
 
 
-![png](index_files/index_14_0.png)
+![png](index_files/index_21_0.png)
 
 
 ### Basic Plotting Functions in `matplotlib`
 
-In the plots above, we saw `ax.scatter()` for generating a scatter plot and `ax.plot()` function for the line plot. It is imperative that data in the right format and dimensions is passed to these functions to avoid any errors or unexpected behaviour in the output. Following is a list of other similar functions which can be readily used for visualizing data. 
+In the plots above, notice how to use `ax.scatter()` for generating a scatter plot and `ax.plot()` function for displaying a line plot. It is imperative that data in the right format and dimensions is passed to these functions to avoid any errors or unexpected behaviour in the output. Following is a list of other similar functions which can be readily used for visualizing data. 
 
     .plot()           Line plot
     .scatter()        Scatter plot
@@ -293,8 +373,8 @@ In the plots above, we saw `ax.scatter()` for generating a scatter plot and `ax.
     .vline()	      Vertical line across axes
     .stackplot()	  Stack plot
     
-We'll learn more about these functions in upcoming labs and lessons. 
+You'll learn more about these functions in upcoming labs and lessons. 
 
 ## Summary
 
-This lesson provided us with some more experience with plotting in `matplotlib`. We saw how to draw plots with default objects settings vs. plotting with object definitions. We learned to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson then ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
+This lesson provided you with some more experience with plotting in `matplotlib`. You saw how to draw plots with default objects settings vs. plotting with object definitions. You learned to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson then ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
