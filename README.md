@@ -179,7 +179,7 @@ plt.scatter(x,y)
 
 
 
-    <matplotlib.collections.PathCollection at 0x11060d048>
+    <matplotlib.collections.PathCollection at 0x118a98ba8>
 
 
 
@@ -282,38 +282,39 @@ plt.show()
 ![png](index_files/index_17_0.png)
 
 
-We can also draw above as one column split into two rows by passing (21x) to add_subplot function. Wanna give it a try?
+## More Subplots
 
-### `add_sublpot()` vs. `add_axes()` Functions
+In addition to adding subplots sequentially on the fly, as above, you can also predefine a grid of subplots like this:
 
-The `fig.add_axes()` and `fig.add_subplot()` both return a new Axes object. However, they do differ in the mechanism for adding the axes. With `add_axes()`, axes object is positioned in absolute coordinates, whereas with `add_subplot()`, axes objects are positioned relatively as you saw above. `add_axes()` can therefore be used for visualizing a plot within a plot. Take a look at a quick example:
+```python
+fig, axes = plt.subplots(ncols=2, nrows=3) #2 columns, 3 rows
+```
+
+From there, you can then plot on the individual subplots by accessing the subplot through the axes object:
+
+```python
+top_left = axes[0][0]
+top_right = axes[0][1]
+row2_col1 = axes[1][0]
+row2_col2 = axes[1][1]
+row3_col1 = axes[2][0]
+row3_col2 = axes[2][1]
+```
+
+More succinctly, these indices are often generated using floor division and modular arithmetic in a for loop:
 
 
 ```python
-# Generate sample data 
-x = np.linspace(0, 5, 11)
-y = x ** 3
-
-# Creates blank canvas
-figure = plt.figure()
-
-# Add new axes to the figure with absolute positions
-ax1 = figure.add_axes([0.1, 0.1, 0.8, 0.8]) # main axes
-ax2 = figure.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
-
-# Larger Figure Axes 1
-ax1.plot(x, y, color = 'blue', linestyle = '-.')
-ax1.set_xlabel('X_label on axes1')
-ax1.set_ylabel('Y_label on axes1')
-ax1.set_title('Axes 1 Title')
-
-# Insert Figure Axes 2
-ax2.plot(y, x, color = 'green', linestyle = '--')
-ax2.set_xlabel('X_label on axes2')
-ax2.set_ylabel('Y_label on axes2')
-ax2.set_title('Axes 2 Title')
-
-plt.show()
+x = np.linspace(-10, 10, 101)
+fig, axes = plt.subplots(nrows=4, ncols=2, figsize=(10,10))
+plt.title('Graphs of Various Polynomials')
+for n in range(1,9):
+    row = (n-1)//2
+    col = n%2-1
+    ax = axes[row][col]
+    y = [xi**n for xi in x]
+    ax.plot(x,y)
+    ax.set_title('x^{}'.format(n))
 ```
 
 
