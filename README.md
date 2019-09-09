@@ -94,10 +94,10 @@ With a simple plot as shown above, `matplotlib` also allows users to provide a c
 
 These functions can be used with the `.legend()` function as we just saw above to add legend to the plot. The legend function takes an optional keyword argument `loc` that can be used to specify where in the figure the legend is to be drawn. 
 
-    ax.legend(loc=1) : upper right corner
-    ax.legend(loc=2) : upper left corner
-    ax.legend(loc=3) : lower left corner
-    ax.legend(loc=4) : lower right corner
+    plt.legend(loc=1) : upper right corner
+    plt.legend(loc=2) : upper left corner
+    plt.legend(loc=3) : lower left corner
+    plt.legend(loc=4) : lower right corner
 
 Let's add some more information to above plot using these functions below:
 
