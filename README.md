@@ -3,18 +3,18 @@
 
 ## Introduction
 
-We had a quick introduction to plotting with `matplotlib` in section one. This lesson covers plotting with Python and `matplotlib` using a more structured approach. In this section, we'll look into the components of standard matplotlib plots used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
+We had a quick introduction to plotting with `matplotlib` in section one. This lesson covers plotting with Python and `matplotlib` using a more structured approach. In this section, we'll look into the components of standard `matplotlib` plots used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
 
 ## Objectives
 You will be able to:
-* Change styles and attributes for plotting objects in python to allow customisation
-* Customize plots with titles, labels and positioning
+* Change styles and attributes for plotting objects in Python to allow customisation
+* Customize plots with titles, labels, and positioning
 
-## `matplotlib` Plot:
+## `matplotlib` Plot
 
-We have already seen some of the `matplotlib` built in functions that facilitate visualizing data with minimum effort. 
+We have already seen some of the `matplotlib` built-in functions that facilitate visualizing data with minimum effort. 
 
-Let's first import matplotlib's `pyplot` module into our working environment along with `numpy` to create sample data. We can use numpy's `linspace()` function to quickly generate some dummy data for visualizations.`pyplot` module provides allows simple and agile creation of figures and axes to achieve the desired plot. We'll see below how required figure descriptions and axes are added in a simple example. 
+Let's first import `matplotlib`'s `pyplot` module into our working environment along with `numpy` to create sample data. We can use numpy's `linspace()` function to quickly generate some dummy data for visualizations.`pyplot` module allows simple and agile creation of figures and axes to achieve the desired plot. We'll see below how required figure descriptions and axes are added in a simple example. 
 
 
 ```python
@@ -59,9 +59,9 @@ data
 
 
 
-Just as expected. 100 equally spaced numbers starting from 0 to a 1000. 
+Just as expected: 100 equally spaced numbers starting from 0 to a 1000. 
 
-After preparing the the data, we can use matplotlib's `plot()` function to create the plot with our data, `legend()` to add context information to the plot, and finally `show()` functions to output the plot . 
+After preparing the data, we can use `matplotlib`'s `plot()` function to create the plot with our data, `legend()` to add context information to the plot, and finally `show()` function to output the plot. 
 
 In jupyter notebooks, you can use `%matplotlib` magic with `inline` to show plots inside the notebook or `qt` for external/interactive plots. `inline` is recommended for most needs. There is also a `% matplotlib notebook` magic, which we'll see shortly.
 
@@ -70,7 +70,7 @@ In jupyter notebooks, you can use `%matplotlib` magic with `inline` to show plot
 # Set plot space as inline for inline plots and qt for external plots
 %matplotlib inline
 
-# Use plot() function to create a plot using above values on both x and y coordinates. Add a label.
+# Use plot() function to create a plot using above values on both x and y coordinates. Add a label 
 plt.plot(data, data, label='Sample Data')
 
 # Add a legend to the plot with legend()
@@ -88,16 +88,17 @@ plt.show()
 
 With a simple plot as shown above, `matplotlib` also allows users to provide a context to the visual information by adding plot titles and labels for axes. Following functions can be used to achieve this:
 
-**`plt.xlabel("text") / plt.ylabel("text")`** - Define labels for x and y axes. 
+- `plt.xlabel("text") / plt.ylabel("text")`: Define labels for x and y axes  
 
-**`plt.title("text")`** - Define the plot title. 
+- `plt.title("text")`: Define the plot title  
 
-These functions can be used with the `.legend()` function as we just saw above to add legend to the plot. The legend function takes an optional keyword argument `loc` that can be used to specify where in the figure the legend is to be drawn. 
+These functions can be used with the `plt.legend()` function as we just saw above to add legend to the plot. The `legend()` function takes an optional keyword argument `loc` that can be used to specify where in the figure the legend is to be drawn. 
 
     plt.legend(loc=1) : upper right corner
     plt.legend(loc=2) : upper left corner
     plt.legend(loc=3) : lower left corner
     plt.legend(loc=4) : lower right corner
+
 
 Let's add some more information to above plot using these functions below:
 
@@ -135,11 +136,11 @@ As we just saw, such basic visualizations only require a few lines of code in `m
 ### Figure and Axes Objects
 Looking at the above image, a **figure** is a top level component that refers to the overall image space. **Axes** are added to the figure to define the area where data is plotted with the `plot()` function seen above. A figure can have a number of components like **title(s)** and **legend(s)** which may be used to further explain and customize the plot.  Axes have **ticks** and **labels** providing a perspective to the plot. `set_xlim(min,max)` and `set_ylim(min,max)` are used to define the limits of axes in a plot. 
 
-Let's see all of above in action with another plot. Here we declare a new figure space by calling `.figure()` method and use random data values to draw a line graph and a scatter plot using same axes i.e. draw plots on top of each other. We also set the limits of x and y dimensions and output the final plot. 
+Let's see all of above in action with another plot. Here we declare a new figure space by calling `figure()` function and use random data values to draw a line graph and a scatter plot using same axes, i.e. draw plots on top of each other. We also set the limits of x and y dimensions and output the final plot. 
 
 
 ```python
-# Define a new figure with matplotlib's .plot() function. 
+# Define a new figure with matplotlib's figure() function 
 new_figure = plt.figure()
 
 # Add a subplot to the figure - a new axes
@@ -164,13 +165,13 @@ plt.show()
 
 ## More on Axes
 
-You've seen that you can add labels to your axes, but you can also change the scales and numbering of the axes themselves. You do this via the `plt.xticks()` and `plt.yticks()` methods. (Note: `plt` refers to the standard import alias: `import matplotlib.pyplot as plt`.)
+You've seen that you can add labels to your axes, but you can also change the scales and numbering of the axes themselves. You do this via the `plt.xticks()` and `plt.yticks()` functions. (Note: `plt` refers to the standard import alias: `import matplotlib.pyplot as plt`.)
 
 
 
 
 ```python
-#A standard plot
+# A standard plot
 x = np.linspace(start=0, stop=100, num=10**3)
 y = [xi**2 for xi in x]
 plt.scatter(x,y)
@@ -189,14 +190,14 @@ plt.scatter(x,y)
 
 
 ```python
-#The same plot with new axes ticks
+# The same plot with new axes ticks
 x = np.linspace(start=0, stop=100, num=10**3)
 y = [xi**2 for xi in x]
 plt.scatter(x,y)
 
 xticks = np.linspace(start=0, stop=100, num=11)
 yticks = np.linspace(start=0, stop=100**2, num=11)
-plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.xticks(xticks); # Adding a semicolon after the call will prevent extraneous input from being displayed
 plt.yticks(yticks);
 ```
 
@@ -214,7 +215,7 @@ plt.scatter(x,y)
 
 xticks = np.linspace(start=0, stop=200, num=11)
 yticks = np.linspace(start=0, stop=10**5, num=11)
-plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.xticks(xticks); # Adding a semicolon after the call will prevent extraneous input from being displayed
 plt.yticks(yticks);
 plt.title('Displaying Terrible Use of plt.xticks() and plt.yticks()');
 ```
@@ -234,7 +235,7 @@ plt.scatter(x,y)
 xticks = np.linspace(start=0, stop=50, num=11)
 yticks = np.linspace(start=0, stop=.5*10**4, num=11)
 plt.title('More things to avoid')
-plt.xticks(xticks); #Adding a semicolon after the call will prevent extraneous input from being displayed
+plt.xticks(xticks); # Adding a semicolon after the call will prevent extraneous input from being displayed
 plt.yticks(yticks);
 ```
 
@@ -243,15 +244,15 @@ plt.yticks(yticks);
 
 
 ### Sub-Plots
-If you want to draw a single plot, it’s better to do it with defaults as you saw in the first example. However, if you want to draw multiple axes i.e. multiple plots in a single figure, it’s always better to explicitly define the **figure** object. Following this, you will always make use of the **Axes** object as `ax` above.
+If you want to draw a single plot, it’s better to do it with defaults as you saw in the first example. However, if you want to draw multiple axes, i.e. multiple plots in a single figure, it’s always better to explicitly define the **figure** object. Following this, you will always make use of the **Axes** object as `ax` above.
 
 You saw `add_subplot()` function above as `add_subplots(111)` to define a new axes. This function took 3 arguments: number of rows (1), the number of columns (1) and the plot number (1), i.e. a single plot.
 
-Let's re-draw above plots in two different subplots. For this, you then pass the arguments (12x) - this tells you us that you have one row split into two columns.  You can replace x with 1 and 2 to address our subplots areas. You also pass `figsize =(x,y)` to `.figure()` function in order to define the size for our figure space (x and y values are in inches by default).
+Let's re-draw above plots in two different subplots. For this, you then pass the arguments (12x) - this tells you us that you have one row split into two columns.  You can replace x with 1 and 2 to address our subplots areas. You also pass `figsize =(x,y)` to `figure()` function in order to define the size for our figure space (x and y values are in inches by default).
 
 
 ```python
-# Define a new figure with matplotlib's .plot() function. Set the size of figure space
+# Define a new figure with matplotlib's figure() function. Set the size of figure space
 new_figure = plt.figure(figsize=(10,4))
 
 # Add a subplot to the figure - a new axes
@@ -287,7 +288,7 @@ plt.show()
 In addition to adding subplots sequentially on the fly, as above, you can also predefine a grid of subplots like this:
 
 ```python
-fig, axes = plt.subplots(ncols=2, nrows=3) #2 columns, 3 rows
+fig, axes = plt.subplots(ncols=2, nrows=3) # 2 columns, 3 rows
 ```
 
 From there, you can then plot on the individual subplots by accessing the subplot through the axes object:
@@ -323,7 +324,7 @@ for n in range(1,9):
 
 ### Customizing Line Styles
 
-The functions shown above take additional parameters line `color`, `linewidth`, `linestyle` and `marker` etc. for customization of plots and to "prettify" them. A complete list of arguments that work with these plotting functions can be viewed at [Official Documentation](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html).
+The functions shown above take additional parameters line `color`, `linewidth`, `linestyle`, and `marker` etc. for customization of plots and to "prettify" them. A complete list of arguments that work with these plotting functions can be viewed at [official documentation](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html).
 
 To change the line width, we can use the `linewidth` or `lw` keyword argument. The line style can be selected using the `linestyle` or `ls` keyword arguments. Following plot summarizes different types of lines you can draw in matplotlib.
 
@@ -378,4 +379,4 @@ You'll learn more about these functions in upcoming labs and lessons.
 
 ## Summary
 
-This lesson provided you with some more experience with plotting in `matplotlib`. You saw how to draw plots with default objects settings vs. plotting with object definitions. You learned to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson then ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
+This lesson provided you with some more experience with plotting in `matplotlib`. You saw how to draw plots with default settings vs. plotting with object definitions. You learned to apply labels and titles to the plots to provide them context for an improved understanding. The lesson provided ways to draw multiple plots within the same figure by using absolute and relative definitions. The lesson then ended by providing a quick reference list to some styling techniques and further plotting functions which will be discussed in detail later. 
