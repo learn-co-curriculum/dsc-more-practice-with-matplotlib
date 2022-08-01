@@ -5,7 +5,9 @@
 We had a quick introduction to plotting with `matplotlib` in previous lessons. This lesson covers plotting with Python and `matplotlib` using a more structured approach. In this section, we'll look into the components of standard Matplotlib plots used for creating and customizing visualizations. The lesson will also provide you with lots of example code to get you started with data visualization and customizations. 
 
 ## Objectives
+
 You will be able to:
+
 * Create a line plot with Matplotlib
 * Plot multiple graphs on the same axes
 * Customize axes limits and ticks
@@ -78,7 +80,9 @@ ax.legend(["Sample Data"]);
 ```
 
 
+    
 ![png](index_files/index_7_0.png)
+    
 
 
 **Note:** Notice the semicolon at the end of the last line. If this is not included, the location in memory of the last object to be created in the graph can be displayed before the graph is displayed.
@@ -123,7 +127,9 @@ ax.legend(["Sample Data"], loc=4);
 ```
 
 
+    
 ![png](index_files/index_10_0.png)
+    
 
 
 ## Multiple Plots on the Same Axes
@@ -155,7 +161,9 @@ ax.legend(["Sample Data", "Other Data"], loc=4);
 ```
 
 
+    
 ![png](index_files/index_12_0.png)
+    
 
 
 It is also possible to plot more than one kind of graph on the same axes. For example, this shows both a line graph and a scatter plot:
@@ -182,7 +190,9 @@ ax.legend(["Dataset 1", "Dataset 2"]);
 ```
 
 
+    
 ![png](index_files/index_14_0.png)
+    
 
 
 Be careful when combining plots this way. Consider: *Do they really have the same x and y axis? Why do they need to be represented by two different kinds of plots?*
@@ -208,7 +218,9 @@ ax.set_title("Line Plot with Default Axes");
 ```
 
 
+    
 ![png](index_files/index_17_0.png)
+    
 
 
 ### Axis Limits
@@ -230,7 +242,9 @@ ax.set_ylim(min(y)-1500, max(y)+1500);
 ```
 
 
+    
 ![png](index_files/index_19_0.png)
+    
 
 
 And here it is "zoomed in" so we are only looking at x values between 80 and 100:
@@ -248,7 +262,9 @@ ax.set_ylim(6000, 10000);
 ```
 
 
+    
 ![png](index_files/index_21_0.png)
+    
 
 
 ## Axis Ticks
@@ -272,7 +288,9 @@ ax.set_yticks(yticks);
 ```
 
 
+    
 ![png](index_files/index_23_0.png)
+    
 
 
 Axis ticks that go beyond the minimum and maximum of the data can make for poor graphs:
@@ -292,7 +310,9 @@ ax.set_yticks(yticks);
 ```
 
 
+    
 ![png](index_files/index_25_0.png)
+    
 
 
 But smaller tick ranges then the data itself will not crop the graph (use `set_xlim` and/or `set_ylim` to crop):
@@ -312,7 +332,9 @@ ax.set_yticks(yticks);
 ```
 
 
+    
 ![png](index_files/index_27_0.png)
+    
 
 
 ### Customizing Line Styles
@@ -346,7 +368,9 @@ ax.legend(["Dataset 1", "Dataset 2"]);
 ```
 
 
+    
 ![png](index_files/index_29_0.png)
+    
 
 
 The following plot summarizes different types of line styles you can draw in Matplotlib:
@@ -385,7 +409,9 @@ ax.plot(x, x+38, color="purple", lw=1, ls='-', marker='s', markersize=8, markerf
 ```
 
 
+    
 ![png](index_files/index_31_0.png)
+    
 
 
 ## More `matplotlib` Objects
@@ -410,7 +436,9 @@ ax.set_title("This is the title of the axes");
 ```
 
 
+    
 ![png](index_files/index_33_0.png)
+    
 
 
 ### Sub-Plots
@@ -433,7 +461,9 @@ fig, axes = plt.subplots(figsize=(11, 3), ncols=3)
 ```
 
 
+    
 ![png](index_files/index_35_0.png)
+    
 
 
 Here we have 3 axes stacked on top of one another:
@@ -444,7 +474,9 @@ fig, axes = plt.subplots(figsize=(3, 11), nrows=3)
 ```
 
 
+    
 ![png](index_files/index_37_0.png)
+    
 
 
 #### Customizing Individual Axes
@@ -479,7 +511,9 @@ axes[1].set_facecolor("orange")
 ```
 
 
+    
 ![png](index_files/index_41_0.png)
+    
 
 
 **Note:** `axes` is a collection of objects stored in a list-like data structure (a NumPy `ndarray`), and like other lists in Python it is "zero indexed": the "first" element in the list is selected with a 0, the "second" element selected with a 1, and so on.
@@ -497,7 +531,9 @@ third_ax.set_facecolor("yellow")
 ```
 
 
+    
 ![png](index_files/index_43_0.png)
+    
 
 
 Whether you use an `axes` variable or unpack the values is up to you — depending on the context of your code, either one might be the cleaner or clearer option.
@@ -527,7 +563,9 @@ narrow_axes = fig.add_subplot(1, 3, 3)
 ```
 
 
+    
 ![png](index_files/index_45_0.png)
+    
 
 
 #### "PyPlot" Syntax
@@ -569,7 +607,9 @@ plt.legend(["Sample Data"]);
 ```
 
 
+    
 ![png](index_files/index_47_0.png)
+    
 
 
 Note that we saved 1 line of code by using this syntax in this example. However, say we want to reproduce this example:
@@ -588,7 +628,9 @@ plt.gcf().axes[1].set_facecolor("orange")
 ```
 
 
+    
 ![png](index_files/index_49_0.png)
+    
 
 
 In general, you want to use the object-oriented syntax when possible, but it's useful to be able to recognize what's happening when you see examples that use the PyPlot syntax.
@@ -621,7 +663,9 @@ fig.legend(labels=["Dataset 1", "Dataset 2"], loc=(.68, .88));
 ```
 
 
+    
 ![png](index_files/index_52_0.png)
+    
 
 
 Note that it is possible to recreate this using PyPlot syntax, it just makes many of the lines longer:
@@ -652,7 +696,9 @@ plt.gcf().legend(labels=["Dataset 1", "Dataset 2"], loc=(.68, .88));
 ```
 
 
+    
 ![png](index_files/index_54_0.png)
+    
 
 
 ## More Subplots
@@ -697,7 +743,9 @@ for n in range(6):
 ```
 
 
+    
 ![png](index_files/index_56_0.png)
+    
 
 
 ## Other Plotting Functions in `matplotlib`
