@@ -417,7 +417,7 @@ ax.plot(x, x+38, color="purple", lw=1, ls='-', marker='s', markersize=8, markerf
 ## More `matplotlib` Objects
 
 The structure of a plot in `matplotlib` can be generalized as shown below.  
-![](images/gplot.png)
+![](https://curriculum-content.s3.amazonaws.com/data-science/images/gplot.png)
 
 ### Figure and Axes Objects
 Looking at the above image, a **figure** is a top level component that refers to the overall image space. **Axes** are added to the figure to define the area where data is plotted with the `plot()` function seen above. A figure can have a number of components like **title(s)** which may be used to further explain and customize the plot.  Axes have **ticks** and **labels** providing a perspective to the plot.
